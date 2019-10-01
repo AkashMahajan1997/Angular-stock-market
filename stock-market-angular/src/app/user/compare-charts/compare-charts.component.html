@@ -1,0 +1,97 @@
+
+
+<html>
+        
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+       
+        <title>Comparision charts</title>
+    
+    </head>
+    
+    <body class="bg-light">
+            
+        <section class="container">
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="card shadow">
+                        <p class="h4 card-header">Comparision charts</p>
+                       <!-- <p *ngIf="isValidFormSubmitted" class="success">
+                                Form submitted successfully.
+                            </p> -->
+                        <form [formGroup]="compare" (ngSubmit)="onSubmit()">
+                        <div class="card-body bg-light">
+
+                            <br>
+    
+                            <div class="row">
+                                <div class="col-md-3">Stock Exchange</div>
+                                <div class="col-md-9">
+                                    <select class="form-control" id="inputGroupSelect01" formControlName="stockExchange" [ngClass]="{ 'is-invalid': submitted && f.stockExchange.errors }">
+                                        <option [ngValue]="null" disabled>Choose your stockExchange</option>
+                                        <option *ngFor="let stockExchange of allExchanges" [ngValue]="stockExchange" (change)="changeStock($event)">
+                                                {{stockExchange}}
+                                                <div *ngIf="submitted && f.stockExchange.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.stockExchange.errors.required">stockExchange is required</div>
+                                                        </div>
+                                            </option>
+                                           
+                                    </select>
+                                </div>
+                            </div>
+                           <br>
+                            <div  class="row">
+                                <div  class="col-md-3"> Select Sector </div>
+                                <div  class="col-md-9"> <select class="form-control" id="inputGroupSelect02" formControlName="sector" [ngClass]="{ 'is-invalid': submitted && f.sector.errors }">
+                                    <option [ngValue]="null" disabled>Choose your sector</option>
+                                   
+                                    <option *ngFor="let sect of allSector" [ngValue]="sect" (change)="changeSector($event)">
+                                            {{ sect}}
+                                        </option>
+                                        <div *ngIf="submitted && f.sector.errors" class="invalid-feedback">
+                                                <div *ngIf="f.sector.errors.required">Sector is required</div>
+                                                </div> 
+                                </select>
+                                
+                            </div>
+                        
+                            </div>
+                        </br>
+                            <div class="row">
+                                    <div class="col-md-3">Company Name :</div>
+                                    <div class="col-md-9"><input type="text" class="form-control" formControlName="companyName" [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }" />
+                                    <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+                                            <div *ngIf="f.companyName.errors.required">Company name  is required</div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                            
+                            <div  class="row">
+                                
+                                <div  class="col-md-3"></div>
+                                <div  class="col-md-9">
+                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                 <button class="btn btn-success" type="submit ">Gerate Map</button>
+                                </div>
+                            </div>
+                            <div>
+                                    <button (click)="backClicked()" class="btn btn-secondary">Back</button>
+                                </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    
+    
+    </body>
+    </html>
+    
